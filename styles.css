@@ -1,7 +1,18 @@
 @import "./styleguide.css";
 
-.header {
+/* Загальні стилі */
+.header, .main {
   background-color: var(--common-white);
+}
+
+.container {
+  max-width: 1128px;
+  margin: auto;
+  padding: 0 16px;
+}
+
+/* Шапка */
+.header {
   padding: 16px 0;
 }
 
@@ -27,15 +38,9 @@
   letter-spacing: 0.5px;
 }
 
+/* Основний контент */
 .main {
-  background-color: var(--common-white);
   padding-bottom: 96px;
-}
-
-.container {
-  max-width: 1128px;
-  margin: auto;
-  padding: 0 16px;
 }
 
 .posts {
@@ -63,7 +68,7 @@
 }
 
 .overlay {
-  border-radius: 0px 0px 16px 16px;
+  border-radius: 0 0 16px 16px;
   background-color: rgba(18, 18, 22, 0.5);
   padding: 12px 20px;
   position: absolute;
@@ -83,6 +88,7 @@
   font-family: var(--common-font);
 }
 
+/* Довгочитання */
 .longread {
   display: grid;
   gap: 96px;
@@ -97,18 +103,9 @@
       "b b .";
     gap: 60px 24px;
   }
-
-  .blog {
-    grid-area: b;
-  }
-
-  .social {
-    grid-area: s;
-  }
-  
-  .video {
-    grid-area: v;
-  }
+  .blog { grid-area: b; }
+  .social { grid-area: s; }
+  .video { grid-area: v; }
 }
 
 .blog {
@@ -122,15 +119,16 @@
   gap: 20px;
 }
 
-.blog-title {
+.blog-title, .blog-text, .socials-title, .video-title {
   color: var(--grey, #2c2c2c);
   font-family: var(--common-font);
+}
+
+.blog-title {
   margin-bottom: 12px;
 }
 
 .blog-text {
-  color: var(--grey, #2c2c2c);
-  font-family: var(--common-font);
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.5px;
@@ -140,16 +138,14 @@
   .blog {
     gap: 36px;
   }
-
   .blog-link {
     gap: 24px;
     grid-template-columns: 264px 1fr;
   }
 }
 
+/* Соціальні мережі */
 .socials-title {
-  color: var(--grey, #2c2c2c);
-  font-family: var(--common-font);
   margin-bottom: 24px;
 }
 
@@ -157,6 +153,12 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px 8px;
+}
+
+@media (min-width: 768px) {
+  .socials-list {
+    gap: 24px;
+  }
 }
 
 .social-link {
@@ -173,42 +175,15 @@
   justify-items: center;
 }
 
-@media (min-width: 768px) {
-  .socials-list {
-    gap: 24px;
-  }
-}
+/* Фонові кольори для соцмереж */
+.socials-item:nth-child(1) .social-link { background-color: var(--navy); }
+.socials-item:nth-child(2) .social-link { background-color: var(--pink); }
+.socials-item:nth-child(3) .social-link { background-color: var(--scarlet); }
+.socials-item:nth-child(4) .social-link { background-color: var(--turquoise); }
+.socials-item:nth-child(5) .social-link { background-color: var(--yellow); }
+.socials-item:nth-child(6) .social-link { background-color: var(--lilac); }
 
-.socials-item:nth-child(1) .social-link {
-  background-color: var(--navy);
-}
-
-.socials-item:nth-child(2) .social-link {
-  background-color: var(--pink);
-}
-
-.socials-item:nth-child(3) .social-link {
-  background-color: var(--scarlet);
-}
-
-.socials-item:nth-child(4) .social-link {
-  background-color: var(--turquoise);
-}
-
-.socials-item:nth-child(5) .social-link {
-  background-color: var(--yellow);
-}
-
-.socials-item:nth-child(6) .social-link {
-  background-color: var(--lilac);
-}
-
-.video-title {
-  color: var(--grey, #2c2c2c);
-  font-family: var(--common-font);
-  margin-bottom: 24px;
-}
-
+/* Підвал */
 .footer {
   padding: 16px;
   background-color: var(--blue-light);
